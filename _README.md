@@ -1,12 +1,12 @@
-# Project Name
+# JamSesh
 
-> Pithy project description
+> For people who play instruments and are looking to jam.
 
 ## Team
 
-  - __Product Owner__: teamMember
-  - __Scrum Master__: teamMember
-  - __Development Team Members__: teamMember, teamMember
+  - __Product Owner__: Chris Dakin
+  - __Scrum Master__: Marina Cerame
+  - __Development Team Members__: Chris Dakin, Marina Cerame
 
 ## Table of Contents
 
@@ -24,11 +24,11 @@
 
 ## Requirements
 
-- Node 0.10.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
+- Node 0.0.0,
+- MongoDB 2.2.16
+- Mongoose 4.7.4
+- React 15.4.1
+- Webpack 1.14.0
 
 ## Development
 
