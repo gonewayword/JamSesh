@@ -3,5 +3,12 @@ class Main extends React.Component {
     super(props);
   }
 
-  
+  render() {
+    return (
+      <div>
+        <h2>MAIN</h2>
+        <div>Table of groups here</div>
+      </div>
+    );
+  }
 }
