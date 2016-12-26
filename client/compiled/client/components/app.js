@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -20,44 +20,35 @@ var App = function (_React$Component) {
   }
 
   _createClass(App, [{
-    key: "render",
+    key: 'renderFromLocation',
+    value: function renderFromLocation() {
+      var loc = window.location.pathname;
+      if (loc === '/' || loc === '/Users/marinacerame/Documents/gitimmersion/opspark/JamSesh/client/index.html') {
+        return React.createElement(
+          'div',
+          null,
+          'You\'re on the index!'
+        );
+      } else {
+        return React.createElement(
+          'div',
+          null,
+          'You\'re not on the index :( '
+        );
+      }
+    }
+  }, {
+    key: 'render',
     value: function render() {
       return React.createElement(
-        "div",
+        'div',
         null,
         React.createElement(Nav, null),
-        React.createElement(
-          "h3",
-          null,
-          "New here?"
-        ),
-        React.createElement(
-          "div",
-          null,
-          React.createElement(
-            "a",
-            { href: "signup.html" },
-            "Sign up!"
-          )
-        ),
-        React.createElement(
-          "h3",
-          null,
-          "Have an account?"
-        ),
-        React.createElement(
-          "div",
-          null,
-          React.createElement(
-            "a",
-            { href: "signin.html" },
-            "Sign in!"
-          )
-        )
+        this.renderFromLocation()
       );
     }
   }]);
 
   return App;
 }(React.Component);
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL2NvbXBvbmVudHMvYXBwLmpzeCJdLCJuYW1lcyI6WyJjb25zb2xlIiwibG9nIiwiQXBwIiwicHJvcHMiLCJSZWFjdCIsIkNvbXBvbmVudCJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7OztBQUFBQSxRQUFRQyxHQUFSLENBQVksZ0JBQVo7O0lBQ01DLEc7OztBQUNKLGVBQVlDLEtBQVosRUFBbUI7QUFBQTs7QUFBQSxxR0FDWEEsS0FEVztBQUVsQjs7Ozs2QkFDUTtBQUNQLGFBQ0U7QUFBQTtBQUFBO0FBQ0UsNEJBQUMsR0FBRCxPQURGO0FBRUU7QUFBQTtBQUFBO0FBQUE7QUFBQSxTQUZGO0FBR0U7QUFBQTtBQUFBO0FBQUs7QUFBQTtBQUFBLGNBQUcsTUFBSyxhQUFSO0FBQUE7QUFBQTtBQUFMLFNBSEY7QUFJRTtBQUFBO0FBQUE7QUFBQTtBQUFBLFNBSkY7QUFLRTtBQUFBO0FBQUE7QUFBSztBQUFBO0FBQUEsY0FBRyxNQUFLLGFBQVI7QUFBQTtBQUFBO0FBQUw7QUFMRixPQURGO0FBU0Q7Ozs7RUFkZUMsTUFBTUMsUyIsImZpbGUiOiJhcHAuanMiLCJzb3VyY2VzQ29udGVudCI6WyJjb25zb2xlLmxvZygnYXBwLmpzeCBsb2FkZWQnKTtcbmNsYXNzIEFwcCBleHRlbmRzIFJlYWN0LkNvbXBvbmVudCB7XG4gIGNvbnN0cnVjdG9yKHByb3BzKSB7XG4gICAgc3VwZXIocHJvcHMpO1xuICB9XG4gIHJlbmRlcigpIHtcbiAgICByZXR1cm4gKFxuICAgICAgPGRpdj5cbiAgICAgICAgPE5hdiAvPlxuICAgICAgICA8aDM+TmV3IGhlcmU/PC9oMz5cbiAgICAgICAgPGRpdj48YSBocmVmPVwic2lnbnVwLmh0bWxcIj5TaWduIHVwITwvYT48L2Rpdj5cbiAgICAgICAgPGgzPkhhdmUgYW4gYWNjb3VudD88L2gzPlxuICAgICAgICA8ZGl2PjxhIGhyZWY9XCJzaWduaW4uaHRtbFwiPlNpZ24gaW4hPC9hPjwvZGl2PlxuICAgICAgPC9kaXY+XG4gICAgKTtcbiAgfVxufVxuIl19
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL2NvbXBvbmVudHMvYXBwLmpzeCJdLCJuYW1lcyI6WyJjb25zb2xlIiwibG9nIiwiQXBwIiwicHJvcHMiLCJsb2MiLCJ3aW5kb3ciLCJsb2NhdGlvbiIsInBhdGhuYW1lIiwicmVuZGVyRnJvbUxvY2F0aW9uIiwiUmVhY3QiLCJDb21wb25lbnQiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7QUFBQUEsUUFBUUMsR0FBUixDQUFZLGdCQUFaOztJQUNNQyxHOzs7QUFDSixlQUFZQyxLQUFaLEVBQW1CO0FBQUE7O0FBQUEscUdBQ1hBLEtBRFc7QUFFbEI7Ozs7eUNBQ29CO0FBQ25CLFVBQUlDLE1BQU1DLE9BQU9DLFFBQVAsQ0FBZ0JDLFFBQTFCO0FBQ0EsVUFBSUgsUUFBUSxHQUFSLElBQWVBLFFBQVEsOEVBQTNCLEVBQTJHO0FBQ3pHLGVBQ0U7QUFBQTtBQUFBO0FBQUE7QUFBQSxTQURGO0FBR0QsT0FKRCxNQUlPO0FBQ0wsZUFDRTtBQUFBO0FBQUE7QUFBQTtBQUFBLFNBREY7QUFHRDtBQUNGOzs7NkJBQ1E7QUFDUCxhQUNFO0FBQUE7QUFBQTtBQUNFLDRCQUFDLEdBQUQsT0FERjtBQUVHLGFBQUtJLGtCQUFMO0FBRkgsT0FERjtBQU1EOzs7O0VBdkJlQyxNQUFNQyxTIiwiZmlsZSI6ImFwcC5qcyIsInNvdXJjZXNDb250ZW50IjpbImNvbnNvbGUubG9nKCdhcHAuanN4IGxvYWRlZCcpO1xuY2xhc3MgQXBwIGV4dGVuZHMgUmVhY3QuQ29tcG9uZW50IHtcbiAgY29uc3RydWN0b3IocHJvcHMpIHtcbiAgICBzdXBlcihwcm9wcyk7XG4gIH1cbiAgcmVuZGVyRnJvbUxvY2F0aW9uKCkge1xuICAgIGxldCBsb2MgPSB3aW5kb3cubG9jYXRpb24ucGF0aG5hbWU7XG4gICAgaWYgKGxvYyA9PT0gJy8nIHx8IGxvYyA9PT0gJy9Vc2Vycy9tYXJpbmFjZXJhbWUvRG9jdW1lbnRzL2dpdGltbWVyc2lvbi9vcHNwYXJrL0phbVNlc2gvY2xpZW50L2luZGV4Lmh0bWwnKSB7XG4gICAgICByZXR1cm4gKFxuICAgICAgICA8ZGl2PllvdSdyZSBvbiB0aGUgaW5kZXghPC9kaXY+XG4gICAgICApO1xuICAgIH0gZWxzZSB7XG4gICAgICByZXR1cm4gKFxuICAgICAgICA8ZGl2PllvdSdyZSBub3Qgb24gdGhlIGluZGV4IDooIDwvZGl2PlxuICAgICAgKTtcbiAgICB9XG4gIH1cbiAgcmVuZGVyKCkge1xuICAgIHJldHVybiAoXG4gICAgICA8ZGl2PlxuICAgICAgICA8TmF2IC8+XG4gICAgICAgIHt0aGlzLnJlbmRlckZyb21Mb2NhdGlvbigpfVxuICAgICAgPC9kaXY+XG4gICAgKTtcbiAgfVxufVxuIl19

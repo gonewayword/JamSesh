@@ -3,14 +3,23 @@ class App extends React.Component {
   constructor(props) {
     super(props);
   }
+  renderFromLocation() {
+    let loc = window.location.pathname;
+    if (loc === '/' || loc === '/Users/marinacerame/Documents/gitimmersion/opspark/JamSesh/client/index.html') {
+      return (
+        <div>You're on the index!</div>
+      );
+    } else {
+      return (
+        <div>You're not on the index :( </div>
+      );
+    }
+  }
   render() {
     return (
       <div>
         <Nav />
-        <h3>New here?</h3>
-        <div><a href="signup.html">Sign up!</a></div>
-        <h3>Have an account?</h3>
-        <div><a href="signin.html">Sign in!</a></div>
+        {this.renderFromLocation()}
       </div>
     );
   }
