@@ -5,13 +5,18 @@ class App extends React.Component {
   }
   renderFromLocation() {
     let loc = window.location.pathname;
-    if (loc === '/' || loc === '/Users/marinacerame/Documents/gitimmersion/opspark/JamSesh/client/index.html') {
+    if (loc === '/' || loc === '/Users/marinacerame/Documents/gitimmersion/opspark/JamSesh/public/index.html') {
       return (
-        <div>You're on the index!</div>
+        <div>
+          <h2>Welcome!</h2>
+          <h4>If you have an account, <a href="signin.html">sign in!</a></h4>
+          <h4>If you're new here, <a href="signup.html">sign up!</a></h4>
+        </div>
       );
-    } else {
+    }
+    if (loc === '/Users/marinacerame/Documents/gitimmersion/opspark/JamSesh/public/signin.html') {
       return (
-        <div>You're not on the index :( </div>
+        <Signin />
       );
     }
   }
