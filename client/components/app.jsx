@@ -6,7 +6,11 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Hello World!</h1>
+        <Nav />
+        <h3>New here?</h3>
+        <div><a href="signup.html">Sign up!</a></div>
+        <h3>Have an account?</h3>
+        <div><a href="signin.html">Sign in!</a></div>
       </div>
     );
   }
