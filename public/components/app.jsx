@@ -15,10 +15,10 @@ class App extends React.Component {
     if (loc === '/signup.html' || loc === '/Users/marinacerame/Documents/gitimmersion/opspark/JamSesh/public/signup.html') {
       return <Signup />;
     }
-    if (loc === '/Users/marinacerame/Documents/gitimmersion/opspark/JamSesh/public/main.html') {
+    if (loc === '/main.html' || loc === '/Users/marinacerame/Documents/gitimmersion/opspark/JamSesh/public/main.html') {
       return <Main />;
     }
-    if (loc === '/Users/marinacerame/Documents/gitimmersion/opspark/JamSesh/public/createGroup.html') {
+    if (loc === '/createGroup.html' || loc === '/Users/marinacerame/Documents/gitimmersion/opspark/JamSesh/public/createGroup.html') {
       return <CreateGroup />;
     }
 
