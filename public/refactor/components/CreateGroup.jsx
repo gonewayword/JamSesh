@@ -1,3 +1,6 @@
+import React from 'react';
+import { browserHistory } from 'react-router';
+
 class CreateGroup extends React.Component {
   constructor(props) {
     super(props);
@@ -60,3 +63,5 @@ class CreateGroup extends React.Component {
     );
   }
 }
+
+export default CreateGroup;
