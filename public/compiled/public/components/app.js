@@ -35,7 +35,42 @@ var App = function (_React$Component) {
         return React.createElement(Main, null);
       }
     }
-  }, {
+  },
+
+  compnonentWillMount: function() {
+    this.firebaseRef = new Firebase('https://jamsesh-a187d.firebaseio.com/groups');
+
+    this.firebaseRef.once("value", function(snapshot) { //this will load existing data from database upon initial page load
+      var groups = [];
+      var that = this;
+      snpashot.forEach(function(data) {
+        var group = {
+          id: data.val().id,
+          name: data.val().name,
+          description: data.val().description,
+          instrument: data.val().instrument
+        }
+        groups.push(group);
+        that.setState({groups: group})
+      })
+    });
+  },
+
+  handleUserAdd: function(name, description, instrument) {
+    //function that triggers when a new group is added
+    var newGroup = {
+      id: this.state.groups.length + 1,
+      name: name,
+      description: description,
+      instrument: instrument
+    }
+
+    this.firebaseRef.push();
+
+    this.setState({groups: this.state.groups.concat(newGroup)})
+  },
+
+  {
     key: 'render',
     value: function render() {
       return React.createElement(
