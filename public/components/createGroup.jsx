@@ -42,7 +42,7 @@ class CreateGroup extends React.Component {
   render () {
     return (
       <div>
-        <h3>Sign Up</h3>
+        <h3>Create Group</h3>
 
         <form onSubmit={this.handleSubmit}>
           <input type="text" onChange={this.inputName} placeholder="Group Name"></input><br />
@@ -54,9 +54,6 @@ class CreateGroup extends React.Component {
           <button type="submit">Create Group</button>
         </form>
 
-        <div>
-          Already a member? <a href="signin.html">Sign in!</a>
-        </div>
 
       </div>
     );
