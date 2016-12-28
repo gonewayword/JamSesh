@@ -1,4 +1,5 @@
 import React from 'react';
+import firebase from 'firebase';
 // import { browserHistory } from 'react-router';
 
 class CreateGroup extends React.Component {
@@ -10,6 +11,7 @@ class CreateGroup extends React.Component {
       loc: '',
       avail: '',
       details: '',
+      firebaseApp: null,
     };
 
     this.inputName = this.inputName.bind(this);
@@ -20,10 +22,27 @@ class CreateGroup extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    const config = {
+      apiKey: 'AIzaSyDTu1ETYP9GJoas65GSW61WcCo4auglr_8',
+      authDomain: 'jamsesh-a187d.firebaseapp.com',
+      databaseURL: 'https://jamsesh-a187d.firebaseio.com',
+      storageBucket: 'jamsesh-a187d.appspot.com',
+      messagingSenderId: '1075179288391',
+    };
+    this.setState({ firebaseApp: firebase.initializeApp(config) })
+  }
   handleSubmit(event) {
-    // TODO: handle post request with this data
-    // console.log('submitting data: ', this.state);
     event.preventDefault();
+    const newGroup = {
+      name: this.state.name,
+      genre: this.state.genre,
+      loc: this.state.loc,
+      avail: this.state.avail,
+      details: this.state.details,
+    };
+    this.state.firebaseApp.database().ref('groups/' + this.state.name).push(newGroup);
+    console.log('done');
   }
 
   inputName(event) {
