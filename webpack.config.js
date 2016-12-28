@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+console.log('in webpack config');
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
   entry: ['webpack-hot-middleware/client', './public/Main.jsx'],
@@ -15,8 +16,10 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?$/,
-        include: path.join(__dirname, 'public'),
-        loaders: ['react-hot', 'babel'],
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015', 'react']
+        }
       },
       { test: /\.css$/, loader: 'style-loader!css-loader' },
     ],
