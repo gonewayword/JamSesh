@@ -3,7 +3,7 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import Home from './Home.jsx';
 import SignIn from './SignIn.jsx';
 import SignUp from './SignUp.jsx';
-import createGroup from './CreateGroup.jsx';
+import CreateGroup from './CreateGroup.jsx';
 
 
 
@@ -18,6 +18,7 @@ class App extends React.Component {
           <Route path="/" component={Home}/>
           <Route path="sign-in" component={SignIn}/>
           <Route path="sign-up" component={SignUp}/>
+          <Route path="create-group" component={CreateGroup}/>
         </Router>
     );
   }

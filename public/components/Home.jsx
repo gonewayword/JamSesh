@@ -12,6 +12,7 @@ class Home extends React.Component {
         <div> this is where all our groups will be listed. eventually.</div>
         <Link to="sign-up">Sign up</Link>
         <Link to="sign-in">Sign in</Link>
+        <Link to="create-group">Create Group</Link>
       </div>
     );
   }
