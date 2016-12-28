@@ -1,5 +1,5 @@
 import React from 'react';
-import { browserHistory } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 
 class Home extends React.Component {
   constructor(props) {
@@ -9,7 +9,9 @@ class Home extends React.Component {
     return (
       <div>
         <h2>MAIN</h2>
-
+        <div> this is where all our groups will be listed. eventually.</div>
+        <Link to="sign-up">Sign up</Link>
+        <Link to="sign-in">Sign in</Link>
       </div>
     );
   }
