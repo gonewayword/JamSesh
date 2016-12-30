@@ -24,7 +24,6 @@ class SignUp extends React.Component {
     this.state = {
       firebaseApp: firebase.initializeApp(firebaseConfig),
     };
-
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
