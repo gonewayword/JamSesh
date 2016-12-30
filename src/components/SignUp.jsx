@@ -1,51 +1,82 @@
 import React from 'react';
-import { browserHistory } from 'react-router';
+import firebase from 'firebase';
+import firebaseConfig from '../firebaseConfig';
+import Validation from 'react-validation';
+import validator from 'validator';
+import { Link } from 'react-router';
+// import { browserHistory } from 'react-router';
+
+Object.assign(Validation.rules, {
+  required: {
+    rule: value => value.toString().trim(),
+    hint: () => <span className="form-error is-visible">Required</span>,
+  },
+  email: {
+    rule: value => validator.isEmail(value),
+    hint: value => <span className="form-error is-visible">{value} isnt an Email.</span>,
+  },
+});
 
 class SignUp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
-      email: '',
-      password: ''
+      firebaseApp: firebase.initializeApp(firebaseConfig),
     };
 
-    this.inputUsername = this.inputUsername.bind(this);
-    this.inputEmail = this.inputEmail.bind(this);
-    this.inputPassword = this.inputPassword.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit (event) {
+  handleSubmit(event) {
     // TODO: handle post request with this data
-    console.log('submitting data: ', this.state);
     event.preventDefault();
+    const newUser = {
+      username: event.target.username.value,
+      email: event.target.email.value,
+      password: event.target.password.value,
+    };
+    console.log(newUser);
   }
 
-  inputUsername (event) {
-    this.setState({username: event.target.value});
-  }
-  inputEmail (event) {
-    this.setState({email: event.target.value});
-  }
-  inputPassword (event) {
-    this.setState({password: event.target.value});
-  }
-
-  render () {
+  render() {
     return (
       <div>
         <h3>Sign Up</h3>
-
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" onChange={this.inputUsername} placeholder="Username"></input><br />
-          <input type="text" onChange={this.inputEmail} placeholder="Email"></input> <br />
-          <input type="password" onChange={this.inputPassword} placeholder="Password"></input> <br />
-          <button type="submit">Sign up</button>
-        </form>
-
+        <Validation.components.Form onSubmit={this.handleSubmit}>
+          <div>
+            <Validation.components.Input
+              className="form-control"
+              value=""
+              placeholder="Username"
+              name="username"
+              validations={['required']}
+            />
+          </div>
+          <div>
+            <Validation.components.Input
+              className="form-control"
+              value=""
+              placeholder="Email"
+              name="email"
+              validations={['required', 'email']}
+            />
+          </div>
+          <div>
+            <Validation.components.Input
+              className="form-control"
+              value=""
+              placeholder="Password"
+              name="password"
+              validations={['required']}
+            />
+          </div>
+          <div>
+            <Validation.components.Button className="btn btn-default btn-block">
+            Sign Up</Validation.components.Button>
+          </div>
+        </Validation.components.Form>
         <div>
-          Already a member? <a href="signin.html">Sign in!</a>
+          Already a member? <Link to="sign-in">Sign in!</Link>
         </div>
 
       </div>
