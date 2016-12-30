@@ -1,8 +1,8 @@
 import React from 'react';
+import firebase from 'firebase';
 import Validation from 'react-validation';
 import validator from 'validator';
-import { Link } from 'react-router';
-// import { browserHistory } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 
 Object.assign(Validation.rules, {
   required: {
@@ -18,7 +18,6 @@ Object.assign(Validation.rules, {
 class SignUp extends React.Component {
   constructor(props) {
     super(props);
-
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -29,7 +28,45 @@ class SignUp extends React.Component {
       email: event.target.email.value,
       password: event.target.password.value,
     };
-    // TODO: update with proper firebase path and auth
+    const nameAndEmail = {
+      username: newUser.username,
+      email: newUser.email,
+    };
+    let err = false;
+
+    // the next 6 lines ensures a username is unique before signup
+    this.state.firebaseApp.database().ref(`/users/${newUser.username}`)
+    .once('value')
+    .then(snapshot => {
+      if (snapshot.val()) {
+        err = true;
+        window.alert('username is already taken');
+      }
+    })
+    .then(() => { // if username is unique this will add user to firebase Authentication
+      if (!err) {
+        firebase.auth().createUserWithEmailAndPassword(newUser.email, newUser.password)
+        .catch(error => {
+          err = true;
+          console.warn(error);
+        })
+        .then(() => { //  if there are no error up to this point, this will add username
+          if (!err) { //  and email to database
+            this.state.firebaseApp.database().ref(`users/${newUser.username}`).push(nameAndEmail);
+          }
+        })
+        .then(() => {
+          firebase.auth().currentUser.updateProfile({
+            displayName: newUser.username,
+          });
+        })
+        .then(() => {
+          if (!err) {
+            browserHistory.push('/');
+          }
+        });
+      }
+    });
   }
 
   render() {
@@ -58,6 +95,7 @@ class SignUp extends React.Component {
           <div className="form-group">
             <Validation.components.Input
               className="form-control"
+              type="password"
               value=""
               placeholder="Password"
               name="password"

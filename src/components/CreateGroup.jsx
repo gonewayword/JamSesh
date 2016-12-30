@@ -1,6 +1,6 @@
 import React from 'react';
-// import firebase from 'firebase';
-// import firebaseConfig from '../firebaseConfig';
+import firebase from 'firebase';
+import firebaseConfig from '../firebaseConfig';
 import Validation from 'react-validation';
 // import Navbar from './Navbar.jsx';
 // import validator from 'validator';
@@ -11,16 +11,19 @@ Object.assign(Validation.rules, {
     hint: () => <div className="form-error is-visible alert-danger">This field is required!</div>,
   },
 });
-
 class CreateGroup extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      user: firebase.auth().currentUser,
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(event) {
     event.preventDefault();
     const newGroup = {
+      owner: this.state.user,
       name: event.target.name.value,
       genre: event.target.genre.value,
       loc: event.target.loc.value,
