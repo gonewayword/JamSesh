@@ -38,7 +38,7 @@ class SignIn extends React.Component {
         <Navbar />
         <h3>Sign In</h3>
         <Validation.components.Form onSubmit={this.handleSubmit}>
-          <div>
+          <div className="form-group">
             <Validation.components.Input
               className="form-control"
               value=""
@@ -47,7 +47,7 @@ class SignIn extends React.Component {
               validations={['required']}
             />
           </div>
-          <div>
+          <div className="form-group">
             <Validation.components.Input
               className="form-control"
               value=""
@@ -56,12 +56,12 @@ class SignIn extends React.Component {
               validations={['required']}
             />
           </div>
-          <div>
-            <Validation.components.Button className="btn btn-default btn-block">
+          <div className="form-group">
+            <Validation.components.Button className="btn btn-default col-md-2">
             Sign Up</Validation.components.Button>
           </div>
         </Validation.components.Form>
-        <div>
+        <div className="col-md-6 text-center">
           Need an account? <Link to="sign-up">Sign up!</Link>
         </div>
       </div>

@@ -35,7 +35,7 @@ class SignUp extends React.Component {
       email: event.target.email.value,
       password: event.target.password.value,
     };
-    //TODO: update with proper firebase path and auth
+    // TODO: update with proper firebase path and auth
   }
 
   render() {
@@ -76,7 +76,7 @@ class SignUp extends React.Component {
             Sign Up</Validation.components.Button>
           </div>
         </Validation.components.Form>
-        <div className="col-md-10 text-center">
+        <div className="col-md-6 text-center">
           Already a member? <Link to="sign-in">Sign in!</Link>
         </div>
       </div>
