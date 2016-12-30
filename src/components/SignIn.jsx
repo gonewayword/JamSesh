@@ -1,9 +1,6 @@
 import React from 'react';
-import firebase from 'firebase';
-import firebaseConfig from '../firebaseConfig';
 import Validation from 'react-validation';
 import { Link } from 'react-router';
-import Navbar from './Navbar.jsx';
 // import { browserHistory } from 'react-router';
 
 Object.assign(Validation.rules, {
@@ -16,9 +13,6 @@ Object.assign(Validation.rules, {
 class SignIn extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      firebaseApp: firebase.initializeApp(firebaseConfig),
-    };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -28,14 +22,13 @@ class SignIn extends React.Component {
       username: event.target.username.value,
       password: event.target.password.value,
     };
-    // this.state.firebaseApp.database().ref(???);
     // TODO: update with proper firebase path and auth
   }
 
   render() {
     return (
       <div className="container">
-        <Navbar />
+        {/* <Navbar /> */}
         <h3>Sign In</h3>
         <Validation.components.Form onSubmit={this.handleSubmit}>
           <div className="form-group">

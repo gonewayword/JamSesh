@@ -1,8 +1,8 @@
 import React from 'react';
-import firebase from 'firebase';
-import firebaseConfig from '../firebaseConfig';
+// import firebase from 'firebase';
+// import firebaseConfig from '../firebaseConfig';
 import Validation from 'react-validation';
-import Navbar from './Navbar.jsx';
+// import Navbar from './Navbar.jsx';
 // import validator from 'validator';
 // import { browserHistory } from 'react-router';
 Object.assign(Validation.rules, {
@@ -15,10 +15,6 @@ Object.assign(Validation.rules, {
 class CreateGroup extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      firebaseApp: firebase.initializeApp(firebaseConfig),
-    };
-
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -31,13 +27,13 @@ class CreateGroup extends React.Component {
       avail: event.target.avail.value,
       details: event.target.details.value,
     };
-    this.state.firebaseApp.database().ref(`groups/${event.target.name.value}`).push(newGroup);
+    this.props.firebaseApp.database().ref(`groups/${event.target.name.value}`).push(newGroup);
   }
 
   render() {
     return (
       <div className="container">
-        <Navbar />
+        {/* <Navbar /> */}
         <h3>Create Group</h3>
         <Validation.components.Form onSubmit={this.handleSubmit}>
           <div className="form-group">

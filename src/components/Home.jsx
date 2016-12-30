@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from './Navbar.jsx';
 
 class Home extends React.Component {
   constructor(props) {
@@ -8,7 +7,6 @@ class Home extends React.Component {
   render() {
     return (
       <div className="container">
-        <Navbar />
         <h2>MAIN</h2>
         <div className="col-md-8">
           this is where all our groups will be listed. eventually.
@@ -35,7 +33,7 @@ class Home extends React.Component {
             </tbody>
           </table>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-4 rounded">
           this is where our filters will be. eventually.
         </div>
       </div>

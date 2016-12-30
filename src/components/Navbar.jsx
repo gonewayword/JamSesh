@@ -6,13 +6,13 @@ const Navbar = () => (
     <div className="container">
       <ul className="nav nav-pills">
         <li>
-          <Link to="sign-up"><span>Sign up</span></Link>
+          <Link className="dark button" to="/"><span>Another Search</span></Link>
         </li>
         <li>
-          <Link to="sign-in"><span>Sign in</span></Link>
+          <Link className="dark button" to="sign-in"><span>Sign in</span></Link>
         </li>
         <li>
-          <Link to="create-group"><span>Create Group</span></Link>
+          <Link className="dark button" to="create-group"><span>Create Group</span></Link>
         </li>
       </ul>
     </div>
