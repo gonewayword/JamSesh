@@ -4,7 +4,7 @@ import React from 'react';
 import Validation from 'react-validation';
 // import Navbar from './Navbar.jsx';
 // import validator from 'validator';
-// import { browserHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 Object.assign(Validation.rules, {
   required: {
     rule: value => value.toString().trim(),
@@ -28,12 +28,12 @@ class CreateGroup extends React.Component {
       details: event.target.details.value,
     };
     this.props.firebaseApp.database().ref(`groups/${event.target.name.value}`).push(newGroup);
+    browserHistory.push('/');
   }
 
   render() {
     return (
       <div className="container">
-        {/* <Navbar /> */}
         <h3>Create Group</h3>
         <Validation.components.Form onSubmit={this.handleSubmit}>
           <div className="form-group">
