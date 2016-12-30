@@ -3,6 +3,7 @@ import firebase from 'firebase';
 import firebaseConfig from '../firebaseConfig';
 import Validation from 'react-validation';
 import { Link } from 'react-router';
+import Navbar from './Navbar.jsx';
 // import { browserHistory } from 'react-router';
 
 Object.assign(Validation.rules, {
@@ -33,7 +34,8 @@ class SignIn extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
+        <Navbar />
         <h3>Sign In</h3>
         <Validation.components.Form onSubmit={this.handleSubmit}>
           <div>

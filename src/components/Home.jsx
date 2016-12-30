@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import Navbar from './Navbar.jsx'
 
 class Home extends React.Component {
   constructor(props) {
@@ -7,12 +7,10 @@ class Home extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="container">
+        <Navbar />
         <h2>MAIN</h2>
         <div> this is where all our groups will be listed. eventually.</div>
-        <Link to="sign-up">Sign up</Link>
-        <Link to="sign-in">Sign in</Link>
-        <Link to="create-group">Create Group</Link>
       </div>
     );
   }

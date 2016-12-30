@@ -2,6 +2,7 @@ import React from 'react';
 import firebase from 'firebase';
 import firebaseConfig from '../firebaseConfig';
 import Validation from 'react-validation';
+import Navbar from './Navbar.jsx';
 // import validator from 'validator';
 // import { browserHistory } from 'react-router';
 Object.assign(Validation.rules, {
@@ -36,6 +37,7 @@ class CreateGroup extends React.Component {
   render() {
     return (
       <div className="container">
+        <Navbar />
         <h3>Create Group</h3>
         <Validation.components.Form onSubmit={this.handleSubmit}>
           <div className="form-group">

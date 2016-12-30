@@ -4,6 +4,7 @@ import firebaseConfig from '../firebaseConfig';
 import Validation from 'react-validation';
 import validator from 'validator';
 import { Link } from 'react-router';
+import Navbar from './Navbar.jsx';
 // import { browserHistory } from 'react-router';
 
 Object.assign(Validation.rules, {
@@ -39,10 +40,11 @@ class SignUp extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
+        <Navbar />
         <h3>Sign Up</h3>
         <Validation.components.Form onSubmit={this.handleSubmit}>
-          <div>
+          <div className="form-group">
             <Validation.components.Input
               className="form-control"
               value=""
@@ -51,7 +53,7 @@ class SignUp extends React.Component {
               validations={['required']}
             />
           </div>
-          <div>
+          <div className="form-group">
             <Validation.components.Input
               className="form-control"
               value=""
@@ -60,7 +62,7 @@ class SignUp extends React.Component {
               validations={['required', 'email']}
             />
           </div>
-          <div>
+          <div className="form-group">
             <Validation.components.Input
               className="form-control"
               value=""
@@ -69,15 +71,14 @@ class SignUp extends React.Component {
               validations={['required']}
             />
           </div>
-          <div>
-            <Validation.components.Button className="btn btn-default btn-block">
+          <div className="form-group">
+            <Validation.components.Button className="btn btn-default col-md-2">
             Sign Up</Validation.components.Button>
           </div>
         </Validation.components.Form>
-        <div>
+        <div className="col-md-10 text-center">
           Already a member? <Link to="sign-in">Sign in!</Link>
         </div>
-
       </div>
     );
   }
