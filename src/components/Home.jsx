@@ -33,7 +33,7 @@ class Home extends React.Component {
             </tbody>
           </table>
         </div>
-        <div className="col-md-4 rounded">
+        <div className="col-md-4 rounded bg-info">
           this is where our filters will be. eventually.
         </div>
       </div>

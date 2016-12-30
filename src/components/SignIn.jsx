@@ -6,7 +6,7 @@ import { Link } from 'react-router';
 Object.assign(Validation.rules, {
   required: {
     rule: value => value.toString().trim(),
-    hint: () => <span className="form-error is-visible">Required</span>,
+    hint: () => <div className="form-error is-visible alert-danger">This field is required!</div>,
   },
 });
 
