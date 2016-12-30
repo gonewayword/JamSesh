@@ -35,7 +35,7 @@ class CreateGroup extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <h3>Create Group</h3>
         <Validation.components.Form onSubmit={this.handleSubmit}>
           <div className="form-group">
@@ -56,7 +56,7 @@ class CreateGroup extends React.Component {
               validations={['required']}
             />
           </div>
-          <div>
+          <div className="form-group">
             <Validation.components.Input
               className="form-control"
               value=""
@@ -65,7 +65,7 @@ class CreateGroup extends React.Component {
               validations={['required']}
             />
           </div>
-          <div>
+          <div className="form-group">
             <Validation.components.Input
               className="form-control"
               value=""
@@ -74,8 +74,8 @@ class CreateGroup extends React.Component {
               validations={['required']}
             />
           </div>
-          <div>
-            <Validation.components.Input
+          <div className="form-group">
+            <Validation.components.Textarea
               className="form-control"
               value=""
               placeholder="Details"
