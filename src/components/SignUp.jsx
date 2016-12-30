@@ -28,14 +28,13 @@ class SignUp extends React.Component {
   }
 
   handleSubmit(event) {
-    // TODO: handle post request with this data
     event.preventDefault();
     const newUser = {
       username: event.target.username.value,
       email: event.target.email.value,
       password: event.target.password.value,
     };
-    console.log(newUser);
+    //TODO: update with proper firebase path and auth
   }
 
   render() {
