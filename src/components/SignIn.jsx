@@ -1,40 +1,68 @@
 import React from 'react';
-import { browserHistory } from 'react-router';
+import firebase from 'firebase';
+import firebaseConfig from '../firebaseConfig';
+import Validation from 'react-validation';
+import { Link } from 'react-router';
+// import { browserHistory } from 'react-router';
+
+Object.assign(Validation.rules, {
+  required: {
+    rule: value => value.toString().trim(),
+    hint: () => <span className="form-error is-visible">Required</span>,
+  },
+});
 
 class SignIn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
-      password: '',
+      firebaseApp: firebase.initializeApp(firebaseConfig),
     };
-    this.inputUsername = this.inputUsername.bind(this);
-    this.inputPassword = this.inputPassword.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit (event) {
-    console.log('submitting data: ', this.state);
+  handleSubmit(event) {
     event.preventDefault();
+    const loginUser = {
+      username: event.target.username.value,
+      password: event.target.password.value,
+    };
+    // this.state.firebaseApp.database().ref(???);
+    // TODO: update with proper firebase path and auth
   }
 
-  inputUsername (event) {
-    this.setState({username: event.target.value});
-  }
-
-  inputPassword (event) {
-    this.setState({password: event.target.value});
-  }
   render() {
     return (
       <div>
-      <h3>Sign Up</h3>
-      <form onSubmit={this.handleSubmit}>
-        <input type="text" onChange={this.inputUsername} placeholder="Username"></input><br />
-        <input type="password" onChange={this.inputPassword} placeholder="Password"></input> <br />
-        <button type="submit">Sign up</button>
-      </form>
-    </div>
+        <h3>Sign In</h3>
+        <Validation.components.Form onSubmit={this.handleSubmit}>
+          <div>
+            <Validation.components.Input
+              className="form-control"
+              value=""
+              placeholder="Username"
+              name="username"
+              validations={['required']}
+            />
+          </div>
+          <div>
+            <Validation.components.Input
+              className="form-control"
+              value=""
+              placeholder="Password"
+              name="password"
+              validations={['required']}
+            />
+          </div>
+          <div>
+            <Validation.components.Button className="btn btn-default btn-block">
+            Sign Up</Validation.components.Button>
+          </div>
+        </Validation.components.Form>
+        <div>
+          Need an account? <Link to="sign-up">Sign up!</Link>
+        </div>
+      </div>
     );
   }
 }
