@@ -21,10 +21,8 @@ class GroupList extends React.Component {
         }
       });
     });
+    const that = this;
   }
-
-  // componentDidMount() {
-  // }
 
   render() {
     return (
@@ -32,7 +30,9 @@ class GroupList extends React.Component {
         <thead>
           <tr>
             <td className="col-md-1">Name</td>
-            <td className="col-md-3">Genre</td>
+            <td className="col-md-2">Genre</td>
+            <td className="col-md-8">Details</td>
+            <td className="col-md-8"></td>
           </tr>
         </thead>
         {this.state.groups.map((el) =>
