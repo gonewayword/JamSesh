@@ -1,6 +1,5 @@
 import React from 'react';
 import firebase from 'firebase';
-import firebaseConfig from '../firebaseConfig';
 import Validation from 'react-validation';
 // import Navbar from './Navbar.jsx';
 // import validator from 'validator';
