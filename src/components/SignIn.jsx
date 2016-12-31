@@ -1,7 +1,7 @@
 import React from 'react';
+import firebase from 'firebase';
 import Validation from 'react-validation';
-import { Link } from 'react-router';
-// import { browserHistory } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 
 Object.assign(Validation.rules, {
   required: {
@@ -19,10 +19,20 @@ class SignIn extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const loginUser = {
-      username: event.target.username.value,
+      email: event.target.email.value,
       password: event.target.password.value,
     };
-    // TODO: update with proper firebase path and auth
+    let err = false;
+    firebase.auth().signInWithEmailAndPassword(loginUser.email, loginUser.password)
+      .catch(error => {
+        err = true;
+        console.warn(error);
+      })
+      .then(() => {
+        if (!err) {
+          browserHistory.push('/');
+        }
+      });
   }
 
   render() {
@@ -36,13 +46,14 @@ class SignIn extends React.Component {
               className="form-control"
               value=""
               placeholder="Username"
-              name="username"
+              name="email"
               validations={['required']}
             />
           </div>
           <div className="form-group">
             <Validation.components.Input
               className="form-control"
+              type="password"
               value=""
               placeholder="Password"
               name="password"
@@ -51,7 +62,7 @@ class SignIn extends React.Component {
           </div>
           <div className="form-group">
             <Validation.components.Button className="btn btn-default col-md-2">
-            Sign Up</Validation.components.Button>
+            Sign In</Validation.components.Button>
           </div>
         </Validation.components.Form>
         <div className="col-md-6 text-center">
