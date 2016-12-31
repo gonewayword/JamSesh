@@ -1,4 +1,5 @@
 import React from 'react';
+import firebase from 'firebase';
 import Validation from 'react-validation';
 import { Link, browserHistory } from 'react-router';
 

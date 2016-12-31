@@ -36,7 +36,7 @@ class SignUp extends React.Component {
     let err = false;
 
     // the next 6 lines ensures a username is unique before signup
-    this.state.firebaseApp.database().ref(`/users/${newUser.username}`)
+    this.props.firebaseApp.database().ref(`/users/${newUser.username}`)
     .once('value')
     .then(snapshot => {
       if (snapshot.val()) {
@@ -53,7 +53,7 @@ class SignUp extends React.Component {
         })
         .then(() => { //  if there are no error up to this point, this will add username
           if (!err) { //  and email to database
-            this.state.firebaseApp.database().ref(`users/${newUser.username}`).push(nameAndEmail);
+            this.props.firebaseApp.database().ref(`users/${newUser.username}`).push(nameAndEmail);
           }
         })
         .then(() => {
