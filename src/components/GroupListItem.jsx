@@ -7,13 +7,13 @@ class GroupListItem extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
   handleClick() {
-    browserHistory.push('group-details');
+    // browserHistory.push('group-details');
   }
   render() {
     return (
       <tr onClick={this.handleClick}>
-        <td>Test</td>
-        <td>Test</td>
+        <td>{this.props.item.name}</td>
+        <td>{this.props.item.genre}</td>
       </tr>
     );
   }

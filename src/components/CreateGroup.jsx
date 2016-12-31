@@ -14,7 +14,7 @@ class CreateGroup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: firebase.auth().currentUser.displayName,
+      user: firebase.auth().currentUser.email,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
