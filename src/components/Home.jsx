@@ -1,6 +1,7 @@
 import React from 'react';
 import GroupList from './GroupList.jsx';
 
+
 class Home extends React.Component {
   constructor(props) {
     super(props);

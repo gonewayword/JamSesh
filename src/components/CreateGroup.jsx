@@ -20,6 +20,7 @@ class CreateGroup extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+
   handleSubmit(event) {
     event.preventDefault();
     const newGroup = {
@@ -30,10 +31,10 @@ class CreateGroup extends React.Component {
       avail: event.target.avail.value,
       details: event.target.details.value,
     };
+
     this.props.firebaseApp.database().ref(`groups/${event.target.name.value}`).push(newGroup);
     browserHistory.push('/');
   }
-
   render() {
     return (
       <div className="container">

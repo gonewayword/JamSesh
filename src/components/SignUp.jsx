@@ -32,6 +32,7 @@ class SignUp extends React.Component {
       username: newUser.username,
       email: newUser.email,
     };
+
     let err = false;
 
     // the next 6 lines ensures a username is unique before signup
