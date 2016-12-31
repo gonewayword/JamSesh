@@ -1,5 +1,8 @@
 import React from 'react';
 
+//  Is displayed after you click on a group from the grouplist.
+//  Should theoretically include messaging.
+
 class GroupDetails extends React.Component {
   constructor(props) {
     super(props);
