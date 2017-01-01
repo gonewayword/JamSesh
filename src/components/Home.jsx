@@ -5,6 +5,8 @@ import GroupList from './GroupList.jsx';
 class Home extends React.Component {
   constructor(props) {
     super(props);
+    const that = this;
+    setTimeout(function () { console.warn('settimeout'); that.forceUpdate(); }, 1000);
   }
   render() {
     return (
