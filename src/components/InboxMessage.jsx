@@ -1,12 +1,14 @@
 import React from 'react';
 import firebase from 'firebase';
+import { browserHistory } from 'react-router';
+
 class InboxMessage extends React.Component {
   constructor(props) {
     super(props);
     this.handleDeleteClick = this.handleDeleteClick.bind(this);
     this.state = {
       key: props,
-    }
+    };
   }
 
   handleDeleteClick() {
@@ -14,8 +16,10 @@ class InboxMessage extends React.Component {
     console.log(this.state.key);
     const user = firebase.auth().currentUser.displayName;
     firebase.database().ref(`/messages/${user}/${this.state.key.item.exists}`).remove();
+    browserHistory.push('redirect');
   }
   render() {
+    console.log("rendering messages");
     return (
       <tr>
         <td>{this.props.item.fromUser}</td>
