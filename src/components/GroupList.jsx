@@ -36,6 +36,10 @@ class GroupList extends React.Component {
       return this.state.groups;
     } else {
       let filteredGroups = this.state.groups;
+      if (this.props.query.instrument) {
+        filteredGroups = filteredGroups.filter(item =>
+          item.instrument.toLowerCase().indexOf(this.props.query.instrument.toLowerCase()) > -1);
+      }
       if (this.props.query.name) {
         filteredGroups = filteredGroups.filter(item =>
           item.name.toLowerCase().indexOf(this.props.query.name.toLowerCase()) > -1);

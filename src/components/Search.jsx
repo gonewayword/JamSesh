@@ -12,6 +12,7 @@ class Search extends React.Component {
       name: event.target.name.value,
       loc: event.target.loc.value,
       genre: event.target.genre.value,
+      instrument: event.target.instrument.value,
     };
     this.props.runSearch(queryObject);
   }
@@ -19,6 +20,15 @@ class Search extends React.Component {
   render() {
     return (
       <Validation.components.Form onSubmit={this.handleSubmit}>
+        <div className="form-group">
+          <Validation.components.Input
+            className="form-control"
+            value=""
+            placeholder="Instrument"
+            name="instrument"
+            validations={[]}
+          />
+        </div>
         <div className="form-group">
           <Validation.components.Input
             className="form-control"
