@@ -17,6 +17,9 @@ const Navbar = () => (
         <li>
           <Link className="dark button" to="create-group"><span>Create Group</span></Link>
         </li>
+        <li>
+          <Link classname="dark button" to="inbox"><span>Inbox</span></Link>
+        </li>
       </ul>
     </div>
   </div>
