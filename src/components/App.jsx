@@ -6,6 +6,7 @@ import SignIn from './SignIn.jsx';
 import SignUp from './SignUp.jsx';
 import CreateGroup from './CreateGroup.jsx';
 import Inbox from './Inbox.jsx';
+import Redirect from './Redirect.jsx';
 
 const App = () => (
   <Router history={browserHistory}>
@@ -15,6 +16,7 @@ const App = () => (
       <Route path="sign-up" component={SignUp} />
       <Route path="create-group" component={CreateGroup} />
       <Route path="inbox" component={Inbox} />
+      <Route path="redirect" component={Redirect} />
     </Route>
   </Router>
 );
