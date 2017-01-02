@@ -29,14 +29,16 @@ class GroupList extends React.Component {
       <table className="table table-striped">
         <thead>
           <tr>
-            <td className="col-md-1">Name</td>
-            <td className="col-md-2">Genre</td>
-            <td className="col-md-8">Details</td>
-            <td className="col-md-8"></td>
+            <td className="col-md-2">Name</td>
+            <td className="col-md-1">Genre</td>
+            <td className="col-md-4">Details</td>
+            <td className="col-md-1"></td>
           </tr>
         </thead>
         {this.state.groups.map((el) =>
-          <tbody><GroupListItem item={el} /></tbody>
+          <tbody>
+            <GroupListItem item={el} />
+          </tbody>
           )}
       </table>
     );

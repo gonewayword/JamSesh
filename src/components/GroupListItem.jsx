@@ -9,6 +9,9 @@ class GroupListItem extends React.Component {
     this.state = {
       showDetails: false,
     };
+    this.details = (<span><p><strong>Location:</strong> {props.item.loc}</p>
+      <p><strong>Availability:</strong> {props.item.avail}</p>
+      <p><strong>Details:</strong> {props.item.details}</p></span>)
   }
   handleDetailsClick() {
     this.state.showDetails ? this.state.showDetails = false : this.state.showDetails = true;
@@ -24,8 +27,12 @@ class GroupListItem extends React.Component {
       <tr>
         <td>{this.props.item.name}</td>
         <td>{this.props.item.genre}</td>
-        <td onClick={this.handleDetailsClick}>{this.state.showDetails ? this.props.item.details : 'Click for More Details'}</td>
-        <td onClick={this.handleMessageClick}><img src="http://www.rcuniverse.com/images/email-icon.jpg" /></td>
+        <td onClick={this.handleDetailsClick}>
+          {this.state.showDetails ? this.details : 'Click for More Details'}
+        </td>
+        <td onClick={this.handleMessageClick}>
+          <img alt="Message" src="http://www.rcuniverse.com/images/email-icon.jpg" />
+        </td>
       </tr>
     );
   }
