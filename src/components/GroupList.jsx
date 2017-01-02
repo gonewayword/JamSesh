@@ -61,7 +61,7 @@ class GroupList extends React.Component {
         </thead>
         <tbody>
         {groups.length ?
-          groups.map(el => <GroupListItem key={el.name} item={el} />) :
+          groups.map(el => <GroupListItem key={el.name} item={el} sendTo={this.props.sendTo} />) :
           <span>No groups to display! <br />Try widening your search.</span>}
         </tbody>
       </table>

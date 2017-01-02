@@ -20,7 +20,8 @@ class GroupListItem extends React.Component {
   }
 
   handleMessageClick() {
-    console.warn('handleMessageClick works');
+    console.warn('handleMessageClick works', this.props.item.owner);
+    this.props.sendTo(this.props.item.owner);
   }
 
   render() {

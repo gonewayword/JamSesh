@@ -1,6 +1,7 @@
 import React from 'react';
 import GroupList from './GroupList.jsx';
 import Search from './Search.jsx';
+import Messenger from './Messenger.jsx';
 
 class Home extends React.Component {
   constructor(props) {
@@ -8,15 +9,20 @@ class Home extends React.Component {
     this.state = {
       query: null,
       groups: [],
+      sendTo: null,
     };
 
     this.runSearch = this.runSearch.bind(this);
+    this.setSendTo = this.setSendTo.bind(this);
     const that = this;
     setTimeout(() => { console.warn('settimeout'); that.forceUpdate(); }, 3000);
   }
 
   runSearch(queryObj) {
     this.setState({ query: queryObj });
+  }
+  setSendTo(sendTo) {
+    this.setState({ sendTo: sendTo });
   }
 
 
@@ -28,11 +34,15 @@ class Home extends React.Component {
           {this.props.firebaseApp.auth().currentUser ?
             '' :
             <strong>Please log in to contact groups</strong>}
-          <GroupList query={this.state.query}/>
+          <GroupList query={this.state.query} sendTo={this.setSendTo}/>
         </div>
         <div className="col-md-4 bg-info">
           Filter by:
           <Search runSearch={this.runSearch}/>
+        </div>
+        <div>
+          <h3>Message</h3>
+          <Messenger sendTo={this.state.sendTo} />
         </div>
       </div>
     );
