@@ -1,13 +1,15 @@
 import React from 'react';
-import firebase from 'firebase';
 import GroupListItem from './GroupListItem.jsx';
+import firebase from 'firebase';
 
 class GroupList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       groups: [],
+      filteredGroups: [],
     };
+
     const temp = [];
     firebase.database().ref('/groups/')
     .on('value', snapshot => {
@@ -21,10 +23,10 @@ class GroupList extends React.Component {
         }
       });
     });
-    const that = this;
   }
 
   render() {
+    console.log('rendering list');
     return (
       <table className="table table-striped">
         <thead>

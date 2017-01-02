@@ -12,11 +12,12 @@ class GroupListItem extends React.Component {
     };
     this.details = (<span><p><strong>Location:</strong> {props.item.loc}</p>
       <p><strong>Availability:</strong> {props.item.avail}</p>
-      <p><strong>Details:</strong> {props.item.details}</p></span>)
+      <p><strong>Details:</strong> {props.item.details}</p></span>);
   }
   handleDetailsClick() {
-    this.state.showDetails ? this.state.showDetails = false : this.state.showDetails = true;
-    this.forceUpdate();
+    return this.state.showDetails ?
+    this.setState({ showDetails: false }) :
+    this.setState({ showDetails: true });
   }
 
   handleMessageClick() {
@@ -24,6 +25,7 @@ class GroupListItem extends React.Component {
   }
 
   render() {
+    console.log('rendering list item');
     return (
       <tr hidden={this.state.hidden}>
         <td>{this.props.item.name}</td>
