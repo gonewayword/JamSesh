@@ -27,12 +27,9 @@ class GroupList extends React.Component {
   }
 
   filterGroups() {
-    console.log('filtering');
     if (!this.props.query) {
-      console.log('no query');
       return this.state.groups;
     } else {
-      console.log('query found');
       let filteredGroups = this.state.groups;
       if (this.props.query.name) {
         filteredGroups = filteredGroups.filter(item =>
@@ -51,9 +48,7 @@ class GroupList extends React.Component {
   }
 
   render() {
-    console.log('rendering list');
     const groups = this.filterGroups();
-    console.log('groups', groups);
     return (
       <table className="table table-striped">
         <thead>
@@ -67,7 +62,7 @@ class GroupList extends React.Component {
         <tbody>
         {groups.length ?
           groups.map(el => <GroupListItem key={el.name} item={el} />) :
-          <span>No groups to display! Try widening your search.</span>}
+          <span>No groups to display! <br />Try widening your search.</span>}
         </tbody>
       </table>
     );

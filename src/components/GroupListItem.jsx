@@ -24,7 +24,6 @@ class GroupListItem extends React.Component {
   }
 
   render() {
-    console.log('rendering list item');
     return (
       <tr>
         <td>{this.props.item.name}</td>

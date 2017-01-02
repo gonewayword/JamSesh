@@ -16,13 +16,11 @@ class Home extends React.Component {
   }
 
   runSearch(queryObj) {
-    console.log('hello')
     this.setState({ query: queryObj });
   }
 
 
   render() {
-    console.log('rendering')
     return (
       <div className="container">
         <h2>JamSesh</h2>
