@@ -23,7 +23,6 @@ class Inbox extends React.Component {
       //   this.state.messages.push([snap[prop], prop]);
       // }
       this.setState({ fetchedMessages: true });
-
     });
   }
 

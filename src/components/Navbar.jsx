@@ -45,7 +45,11 @@ class Navbar extends React.Component {
               <li>
                 <Link className="dark button" to="inbox">
                   <span>Inbox </span>
+<<<<<<< HEAD
                   {/* <span className="bg-danger">{this.state.messages.length}</span> */}
+=======
+                  <span className="bg-danger">{this.state.messages.length}</span>
+>>>>>>> working on navbar and inbox
                 </Link>
               </li>
             </ul>
