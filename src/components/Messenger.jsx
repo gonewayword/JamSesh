@@ -1,12 +1,25 @@
 import React from 'react';
 import Validation from 'react-validation';
+import firebase from 'firebase';
 
 class Messenger extends React.Component {
   constructor(props) {
     super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const newMessage = {
+      toUser: event.target.toUser.value,
+      fromUser: firebase.auth().currentUser.displayName,
+      message: event.target.message.value,
+    };
+    this.props.firebaseApp.database()
+      .ref(`messages/${event.target.toUser.value}`)
+      .push(newMessage);
   }
   render() {
-    console.log(this.props.firebaseApp.auth().currentUser);
     if (!this.props.firebaseApp.auth().currentUser) {
       return (
         <div className="container col-md-8">
