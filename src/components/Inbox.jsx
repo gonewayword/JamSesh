@@ -17,12 +17,8 @@ class Inbox extends React.Component {
         snap[key].exists = key;
         this.state.messages.push(snap[key])
       }
-      // const snap = snapshot.val();
-      // console.log(snap, "snap");
-      // for (const prop in snap) {
-      //   this.state.messages.push([snap[prop], prop]);
-      // }
       this.setState({ fetchedMessages: true });
+
     });
   }
 
