@@ -18,7 +18,6 @@ class Home extends React.Component {
     const that = this;
   }
 
-
   setSendTo(sendTo) {
     this.setState({ sendTo: sendTo });
   }
