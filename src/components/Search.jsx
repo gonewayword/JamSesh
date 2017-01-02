@@ -47,7 +47,7 @@ class Search extends React.Component {
           />
         </div>
         <div className="form-group">
-          <Validation.components.Button className="btn btn-default col-md-2">
+          <Validation.components.Button className="btn btn-default">
           Search</Validation.components.Button>
         </div>
       </Validation.components.Form>
