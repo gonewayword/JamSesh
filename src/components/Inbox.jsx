@@ -1,5 +1,6 @@
 import React from 'react';
 import InboxMessage from './InboxMessage.jsx';
+import firebase from 'firebase';
 
 class Inbox extends React.Component {
   constructor(props) {

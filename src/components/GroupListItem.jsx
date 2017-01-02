@@ -27,9 +27,10 @@ class GroupListItem extends React.Component {
   render() {
     return (
       <tr>
-        <td>{this.props.item.name}</td>
+        <td>{this.props.item.instrument}</td>
         <td>{this.props.item.genre}</td>
         <td onClick={this.handleDetailsClick}>
+          <div><strong>{this.props.item.name}</strong></div>
           {this.state.showDetails ? this.details : 'Click for More Details'}
         </td>
         <td onClick={this.handleMessageClick}>

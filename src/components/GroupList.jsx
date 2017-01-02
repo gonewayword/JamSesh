@@ -7,10 +7,14 @@ class GroupList extends React.Component {
     super(props);
     this.state = {
       groups: [],
+      groupsFetched: false,
     };
 
     this.filterGroups = this.filterGroups.bind(this);
 
+  }
+
+  componentDidMount() {
     const temp = [];
     firebase.database().ref('/groups/')
     .on('value', snapshot => {
@@ -22,6 +26,7 @@ class GroupList extends React.Component {
         for (const prop in el) {
           this.state.groups.push(el[prop]);
         }
+        this.setState({ groupsFetched: true });
       });
     });
   }
@@ -31,6 +36,10 @@ class GroupList extends React.Component {
       return this.state.groups;
     } else {
       let filteredGroups = this.state.groups;
+      if (this.props.query.instrument) {
+        filteredGroups = filteredGroups.filter(item =>
+          item.instrument.toLowerCase().indexOf(this.props.query.instrument.toLowerCase()) > -1);
+      }
       if (this.props.query.name) {
         filteredGroups = filteredGroups.filter(item =>
           item.name.toLowerCase().indexOf(this.props.query.name.toLowerCase()) > -1);
@@ -49,23 +58,26 @@ class GroupList extends React.Component {
 
   render() {
     const groups = this.filterGroups();
-    return (
-      <table className="table table-striped">
-        <thead>
-          <tr>
-            <td className="col-md-2">Name</td>
-            <td className="col-md-1">Genre</td>
-            <td className="col-md-4">Details</td>
-            <td className="col-md-1"></td>
-          </tr>
-        </thead>
-        <tbody>
-        {groups.length ?
-          groups.map(el => <GroupListItem key={el.name} item={el} sendTo={this.props.sendTo} />) :
-          <span>No groups to display! <br />Try widening your search.</span>}
-        </tbody>
-      </table>
-    );
+    return this.state.groupsFetched ?
+    (<table className="table table-striped">
+      <thead>
+        <tr>
+          <td className="col-md-1">Inst.</td>
+          <td className="col-md-1">Genre</td>
+          <td className="col-md-4">Details</td>
+          <td className="col-md-1"></td>
+        </tr>
+      </thead>
+      <tbody>
+      {groups.length ?
+        groups.map(el => <GroupListItem key={el.name} item={el} sendTo={this.props.sendTo} />) :
+        <tr>No groups to display! <br />Try widening your search.</tr>}
+      </tbody>
+    </table>)
+    :
+    (<div>
+      Fetching groups, please wait...
+    </div>);
   }
 }
 

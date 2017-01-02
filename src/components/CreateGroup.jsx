@@ -14,7 +14,7 @@ class CreateGroup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: firebase.auth().currentUser.email,
+      user: firebase.auth().currentUser.displayName,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -24,6 +24,7 @@ class CreateGroup extends React.Component {
     event.preventDefault();
     const newGroup = {
       owner: this.state.user,
+      instrument: event.target.instrument.value,
       name: event.target.name.value,
       genre: event.target.genre.value,
       loc: event.target.loc.value,
@@ -38,6 +39,15 @@ class CreateGroup extends React.Component {
       <div className="container">
         <h3>Create Group</h3>
         <Validation.components.Form onSubmit={this.handleSubmit}>
+          <div className="form-group">
+            <Validation.components.Input
+              className="form-control"
+              value=""
+              placeholder="Instrument needed"
+              name="instrument"
+              validations={['required']}
+            />
+          </div>
           <div className="form-group">
             <Validation.components.Input
               className="form-control"
