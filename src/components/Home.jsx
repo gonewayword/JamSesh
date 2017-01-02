@@ -18,13 +18,13 @@ class Home extends React.Component {
     setTimeout(() => { console.warn('settimeout'); that.forceUpdate(); }, 3000);
   }
 
-  runSearch(queryObj) {
-    this.setState({ query: queryObj });
-  }
+
   setSendTo(sendTo) {
     this.setState({ sendTo: sendTo });
   }
-
+  runSearch(queryObj) {
+    this.setState({ query: queryObj });
+  }
 
   render() {
     return (
@@ -34,15 +34,15 @@ class Home extends React.Component {
           {this.props.firebaseApp.auth().currentUser ?
             '' :
             <strong>Please log in to contact groups</strong>}
-          <GroupList query={this.state.query} sendTo={this.setSendTo}/>
+          <GroupList query={this.state.query} sendTo={this.setSendTo} />
         </div>
         <div className="col-md-4 bg-info">
           Filter by:
-          <Search runSearch={this.runSearch}/>
+          <Search runSearch={this.runSearch} />
         </div>
         <div>
           <h3>Message</h3>
-          <Messenger sendTo={this.state.sendTo} />
+          <Messenger firebaseApp={this.props.firebaseApp} sendTo={this.state.sendTo} />
         </div>
       </div>
     );
