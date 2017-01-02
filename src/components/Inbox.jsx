@@ -14,7 +14,6 @@ class Inbox extends React.Component {
     .on('value', snapshot => {
       const snap = snapshot.val();
       for(const key in snapshot.val()) {
-        console.log(key, 'key');
         snap[key].exists = key;
         this.state.messages.push(snap[key])
       }
@@ -24,9 +23,23 @@ class Inbox extends React.Component {
       //   this.state.messages.push([snap[prop], prop]);
       // }
       this.setState({ fetchedMessages: true });
+
     });
   }
+
+  // update(message) {
+  //   console.log(message, 'message');
+  //   console.log(this.state.messages, 'state messages');
+  //   this.state.messages.forEach((el, id) => {
+  //     if (el.exists === message) {
+  //       this.state.messages.splice(id, 1);
+  //     }
+  //   });
+  //   this.forceUpdate();
+  // }
+
   render() {
+    console.log('rendering inbox');
     const messages = this.state.messages;
     return (
       <div className="container">
