@@ -40,9 +40,12 @@ class Home extends React.Component {
           <h4>Filter by:</h4>
           <Search runSearch={this.runSearch} />
         </div>
-        <div className="col-md-12">
+        <div className="col-md-8">
           <h4>Message</h4>
           <Messenger firebaseApp={this.props.firebaseApp} sendTo={this.state.sendTo} />
+        </div>
+        <div className="col-md-4">
+          <img src={'./jamsesh.png'} />
         </div>
       </div>
     );
