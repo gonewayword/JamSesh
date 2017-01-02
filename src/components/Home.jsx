@@ -3,6 +3,7 @@ import GroupList from './GroupList.jsx';
 import Search from './Search.jsx';
 import Messenger from './Messenger.jsx';
 import firebase from 'firebase';
+import Logo from './jamsesh.png';
 
 class Home extends React.Component {
   constructor(props) {
@@ -12,7 +13,10 @@ class Home extends React.Component {
       groups: [],
       sendTo: null,
     };
-
+    this.imgStyle = {
+      'max-width': '100%',
+      'max-height': '100%',
+    };
     this.runSearch = this.runSearch.bind(this);
     this.setSendTo = this.setSendTo.bind(this);
     const that = this;
@@ -45,7 +49,7 @@ class Home extends React.Component {
           <Messenger firebaseApp={this.props.firebaseApp} sendTo={this.state.sendTo} />
         </div>
         <div className="col-md-4">
-          <img src={'./jamsesh.png'} />
+          <img style={this.imgStyle} className="image-responsive" src={Logo} />
         </div>
       </div>
     );
