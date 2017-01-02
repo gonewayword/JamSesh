@@ -12,10 +12,11 @@ class Home extends React.Component {
 
     this.runSearch = this.runSearch.bind(this);
     const that = this;
-    setTimeout(() => { console.warn('settimeout'); that.forceUpdate(); }, 1000);
+    setTimeout(() => { console.warn('settimeout'); that.forceUpdate(); }, 3000);
   }
 
   runSearch(queryObj) {
+    console.log('hello')
     this.setState({ query: queryObj });
   }
 

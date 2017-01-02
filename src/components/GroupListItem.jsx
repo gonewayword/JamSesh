@@ -8,7 +8,6 @@ class GroupListItem extends React.Component {
     this.handleMessageClick = this.handleMessageClick.bind(this);
     this.state = {
       showDetails: false,
-      hidden: false,
     };
     this.details = (<span><p><strong>Location:</strong> {props.item.loc}</p>
       <p><strong>Availability:</strong> {props.item.avail}</p>
@@ -27,7 +26,7 @@ class GroupListItem extends React.Component {
   render() {
     console.log('rendering list item');
     return (
-      <tr hidden={this.state.hidden}>
+      <tr>
         <td>{this.props.item.name}</td>
         <td>{this.props.item.genre}</td>
         <td onClick={this.handleDetailsClick}>

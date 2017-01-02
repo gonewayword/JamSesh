@@ -7,8 +7,9 @@ class GroupList extends React.Component {
     super(props);
     this.state = {
       groups: [],
-      filteredGroups: [],
     };
+
+    this.filterGroups = this.filterGroups.bind(this);
 
     const temp = [];
     firebase.database().ref('/groups/')
@@ -25,8 +26,30 @@ class GroupList extends React.Component {
     });
   }
 
+  filterGroups() {
+    console.log('filtering');
+    if (!this.props.query) {
+      console.log('no query');
+      return this.state.groups;
+    } else {
+      console.log('query found');
+      let filtering = this.state.groups;
+      if (this.props.query.name) {
+        filtering = filtering.filter(item =>
+          item.name.toLowerCase().indexOf(this.props.query.name.toLowerCase()) > -1);
+      }
+      if (this.props.query.loc) {
+        filtering = filtering.filter(item =>
+          item.loc.toLowerCase().indexOf(this.props.query.loc.toLowerCase()) > -1);
+      }
+      return filtering;
+    }
+  }
+
   render() {
     console.log('rendering list');
+    const groups = this.filterGroups();
+    console.log('groups', groups);
     return (
       <table className="table table-striped">
         <thead>
@@ -38,7 +61,7 @@ class GroupList extends React.Component {
           </tr>
         </thead>
         <tbody>
-        {this.state.groups.map(el => <GroupListItem key={el.name} item={el} />)}
+        {groups.map(el => <GroupListItem key={el.name} item={el} />)}
         </tbody>
       </table>
     );
