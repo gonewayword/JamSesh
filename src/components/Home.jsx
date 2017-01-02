@@ -3,7 +3,6 @@ import GroupList from './GroupList.jsx';
 import Search from './Search.jsx';
 import Messenger from './Messenger.jsx';
 import firebase from 'firebase';
-import Logo from './jamsesh.png';
 
 class Home extends React.Component {
   constructor(props) {

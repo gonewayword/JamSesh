@@ -3,7 +3,6 @@ import firebase from 'firebase';
 import Validation from 'react-validation';
 import validator from 'validator';
 import { Link, browserHistory } from 'react-router';
-import Logo from './jamsesh.png';
 
 Object.assign(Validation.rules, {
   required: {
