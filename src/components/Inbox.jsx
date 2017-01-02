@@ -9,7 +9,7 @@ class Inbox extends React.Component {
     return (
       <div className="container">
         <h2>Inbox</h2>
-        <table>
+        <table className="table table-striped">
           <thead>
             <tr>
               <td className="col-md-2">
