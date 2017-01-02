@@ -5,7 +5,7 @@ import Home from './Home.jsx';
 import SignIn from './SignIn.jsx';
 import SignUp from './SignUp.jsx';
 import CreateGroup from './CreateGroup.jsx';
-import GroupDetails from './GroupDetails.jsx';
+import Inbox from './Inbox.jsx';
 
 const App = () => (
   <Router history={browserHistory}>
@@ -14,7 +14,7 @@ const App = () => (
       <Route path="sign-in" component={SignIn} />
       <Route path="sign-up" component={SignUp} />
       <Route path="create-group" component={CreateGroup} />
-      <Route path="group-details" component={GroupDetails} />
+      <Route path="inbox" component={Inbox} />
     </Route>
   </Router>
 );
