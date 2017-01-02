@@ -33,16 +33,20 @@ class GroupList extends React.Component {
       return this.state.groups;
     } else {
       console.log('query found');
-      let filtering = this.state.groups;
+      let filteredGroups = this.state.groups;
       if (this.props.query.name) {
-        filtering = filtering.filter(item =>
+        filteredGroups = filteredGroups.filter(item =>
           item.name.toLowerCase().indexOf(this.props.query.name.toLowerCase()) > -1);
       }
       if (this.props.query.loc) {
-        filtering = filtering.filter(item =>
+        filteredGroups = filteredGroups.filter(item =>
           item.loc.toLowerCase().indexOf(this.props.query.loc.toLowerCase()) > -1);
       }
-      return filtering;
+      if (this.props.query.genre) {
+        filteredGroups = filteredGroups.filter(item =>
+          item.genre.toLowerCase().indexOf(this.props.query.genre.toLowerCase()) > -1);
+      }
+      return filteredGroups;
     }
   }
 
@@ -61,7 +65,9 @@ class GroupList extends React.Component {
           </tr>
         </thead>
         <tbody>
-        {groups.map(el => <GroupListItem key={el.name} item={el} />)}
+        {groups.length ?
+          groups.map(el => <GroupListItem key={el.name} item={el} />) :
+          <span>No groups to display! Try widening your search.</span>}
         </tbody>
       </table>
     );
