@@ -49,7 +49,7 @@ class Home extends React.Component {
           <Messenger firebaseApp={this.props.firebaseApp} sendTo={this.state.sendTo} />
         </div>
         <div className="col-md-4">
-          <img style={this.imgStyle} className="image-responsive" src={Logo} />
+          <img style={this.imgStyle} className="image-responsive" src="http://i67.tinypic.com/2ld9iza.png" />
         </div>
       </div>
     );
