@@ -5,8 +5,33 @@ import firebase from 'firebase';
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      messages: [],
+      messagesFetched: false,
+    };
   }
+
+  componentDidMount() {
+    if (firebase.auth().currentUser) {
+      const user = firebase.auth().currentUser.displayName;
+      console.log(user, 'test');
+      firebase.database().ref(`/messages/${user}`)
+      .on('value', snapshot => {
+        const snap = snapshot.val();
+        for(const key in snapshot.val()) {
+          console.log(key, 'key');
+          snap[key].exists = key;
+          this.state.messages.push(snap[key])
+        }
+      });
+      this.setState({ messagesFetched: true });
+    } else {
+      this.setState({ rerender: true });
+    }
+  }
+
   render() {
+    console.log(this.state.messages);
     return (<div className="navbar navbar-default">
         {firebase.auth().currentUser ? (
           <div className="container-fluid">
@@ -18,7 +43,10 @@ class Navbar extends React.Component {
                 <Link className="dark button" to="create-group"><span>Create Group</span></Link>
               </li>
               <li>
-                <Link className="dark button" to="inbox"><span>Inbox</span></Link>
+                <Link className="dark button" to="inbox">
+                  <span>Inbox </span>
+                  <span className="bg-danger">{this.state.messages.length}</span>
+                </Link>
               </li>
             </ul>
             <ul className="nav navbar-right nav-pills col-md-4">

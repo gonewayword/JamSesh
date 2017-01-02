@@ -23,8 +23,8 @@ class Inbox extends React.Component {
       // for (const prop in snap) {
       //   this.state.messages.push([snap[prop], prop]);
       // }
+      this.setState({ fetchedMessages: true });
     });
-    console.log(this.state.messages, 'messages');
   }
   render() {
     const messages = this.state.messages;
