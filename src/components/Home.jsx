@@ -42,7 +42,7 @@ class Home extends React.Component {
         </div>
         <div className="col-md-12">
           <h4>Message</h4>
-          <Messenger sendTo={this.state.sendTo} />
+          <Messenger firebaseApp={this.props.firebaseApp} sendTo={this.state.sendTo} />
         </div>
       </div>
     );
