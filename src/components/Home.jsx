@@ -15,7 +15,6 @@ class Home extends React.Component {
     this.runSearch = this.runSearch.bind(this);
     this.setSendTo = this.setSendTo.bind(this);
     const that = this;
-    setTimeout(() => { console.warn('settimeout'); that.forceUpdate(); }, 3000);
   }
 
 

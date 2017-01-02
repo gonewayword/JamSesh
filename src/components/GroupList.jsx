@@ -7,6 +7,7 @@ class GroupList extends React.Component {
     super(props);
     this.state = {
       groups: [],
+      groupsFetched: false,
     };
 
     this.filterGroups = this.filterGroups.bind(this);
@@ -22,6 +23,7 @@ class GroupList extends React.Component {
         for (const prop in el) {
           this.state.groups.push(el[prop]);
         }
+        this.setState({ groupsFetched: true });
       });
     });
   }
@@ -49,23 +51,26 @@ class GroupList extends React.Component {
 
   render() {
     const groups = this.filterGroups();
-    return (
-      <table className="table table-striped">
-        <thead>
-          <tr>
-            <td className="col-md-2">Name</td>
-            <td className="col-md-1">Genre</td>
-            <td className="col-md-4">Details</td>
-            <td className="col-md-1"></td>
-          </tr>
-        </thead>
-        <tbody>
-        {groups.length ?
-          groups.map(el => <GroupListItem key={el.name} item={el} sendTo={this.props.sendTo} />) :
-          <span>No groups to display! <br />Try widening your search.</span>}
-        </tbody>
-      </table>
-    );
+    return this.state.groupsFetched ?
+    (<table className="table table-striped">
+      <thead>
+        <tr>
+          <td className="col-md-2">Name</td>
+          <td className="col-md-1">Genre</td>
+          <td className="col-md-4">Details</td>
+          <td className="col-md-1"></td>
+        </tr>
+      </thead>
+      <tbody>
+      {groups.length ?
+        groups.map(el => <GroupListItem key={el.name} item={el} sendTo={this.props.sendTo} />) :
+        <tr>No groups to display! <br />Try widening your search.</tr>}
+      </tbody>
+    </table>)
+    :
+    (<div>
+      Fetching groups, please wait...
+    </div>)
   }
 }
 
