@@ -27,6 +27,7 @@ class Home extends React.Component {
   }
 
   render() {
+    console.log(firebase.auth().currentUser);
     return (
       <div className="container">
         <h2>JamSesh</h2>

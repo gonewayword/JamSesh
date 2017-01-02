@@ -58,7 +58,7 @@ class GroupList extends React.Component {
     (<table className="table table-striped">
       <thead>
         <tr>
-          <td className="col-md-2">Name</td>
+          <td className="col-md-1">Inst.</td>
           <td className="col-md-1">Genre</td>
           <td className="col-md-4">Details</td>
           <td className="col-md-1"></td>
