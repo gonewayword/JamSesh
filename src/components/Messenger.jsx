@@ -14,6 +14,7 @@ class Messenger extends React.Component {
       toUser: event.target.toUser.value,
       fromUser: firebase.auth().currentUser.displayName,
       message: event.target.message.value,
+      exists: true,
     };
     this.props.firebaseApp.database()
       .ref(`messages/${event.target.toUser.value}`)
