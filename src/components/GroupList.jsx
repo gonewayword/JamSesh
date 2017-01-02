@@ -12,6 +12,9 @@ class GroupList extends React.Component {
 
     this.filterGroups = this.filterGroups.bind(this);
 
+  }
+
+  componentDidMount() {
     const temp = [];
     firebase.database().ref('/groups/')
     .on('value', snapshot => {
@@ -70,7 +73,7 @@ class GroupList extends React.Component {
     :
     (<div>
       Fetching groups, please wait...
-    </div>)
+    </div>);
   }
 }
 

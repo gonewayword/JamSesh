@@ -2,6 +2,7 @@ import React from 'react';
 import GroupList from './GroupList.jsx';
 import Search from './Search.jsx';
 import Messenger from './Messenger.jsx';
+import firebase from 'firebase';
 
 class Home extends React.Component {
   constructor(props) {
@@ -30,18 +31,18 @@ class Home extends React.Component {
       <div className="container">
         <h2>JamSesh</h2>
         <div className="col-md-8">
-          {this.props.firebaseApp.auth().currentUser ?
-            '' :
-            <strong>Please log in to contact groups</strong>}
+          {firebase.auth().currentUser ?
+            <strong>Welcome, {firebase.auth().currentUser.displayName}!</strong> :
+            <strong>Welcome! Please log in or sign up!</strong>}
           <GroupList query={this.state.query} sendTo={this.setSendTo} />
         </div>
         <div className="col-md-4 bg-info">
-          Filter by:
+          <h4>Filter by:</h4>
           <Search runSearch={this.runSearch} />
         </div>
-        <div>
-          <h3>Message</h3>
-          <Messenger firebaseApp={this.props.firebaseApp} sendTo={this.state.sendTo} />
+        <div className="col-md-12">
+          <h4>Message</h4>
+          <Messenger sendTo={this.state.sendTo} />
         </div>
       </div>
     );

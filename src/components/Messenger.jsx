@@ -24,7 +24,7 @@ class Messenger extends React.Component {
 
 
   render() {
-    if (!this.props.firebaseApp.auth().currentUser) {
+    if (!firebase.auth().currentUser) {
       return (
         <div className="container col-md-8">
           <strong>Please log in to send messages!</strong>
