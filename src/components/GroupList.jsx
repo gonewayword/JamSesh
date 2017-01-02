@@ -35,11 +35,9 @@ class GroupList extends React.Component {
             <td className="col-md-1"></td>
           </tr>
         </thead>
-        {this.state.groups.map((el) =>
-          <tbody>
-            <GroupListItem item={el} />
-          </tbody>
-          )}
+        <tbody>
+        {this.state.groups.map(el => <GroupListItem key={el.name} item={el} />)}
+        </tbody>
       </table>
     );
   }

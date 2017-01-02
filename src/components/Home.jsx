@@ -5,11 +5,12 @@ import GroupList from './GroupList.jsx';
 class Home extends React.Component {
   constructor(props) {
     super(props);
+    console.log(props.firebaseApp.auth().currentUser)
     this.state = {
       messages: [],
     };
     const that = this;
-    setTimeout(function () { console.warn('settimeout'); that.forceUpdate(); }, 1000);
+    setTimeout(() => { console.warn('settimeout'); that.forceUpdate(); }, 1000);
   }
 
 
@@ -18,7 +19,9 @@ class Home extends React.Component {
       <div className="container">
         <h2>JamSesh</h2>
         <div className="col-md-8">
-          <GroupList />
+          {this.props.firebaseApp.auth().currentUser ?
+            <GroupList /> :
+            <strong>Please Sign In To View Groups</strong>}
         </div>
         <div className="col-md-4 bg-info">
           Message

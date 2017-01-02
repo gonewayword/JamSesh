@@ -11,7 +11,9 @@ Object.assign(Validation.rules, {
   },
   email: {
     rule: value => validator.isEmail(value),
-    hint: value => <div className="form-error is-visible alert-danger">{value} isnt a valid email address!</div>,
+    hint: value => <div className="form-error is-visible alert-danger">
+      {value} isnt a valid email address!
+    </div>,
   },
 });
 
