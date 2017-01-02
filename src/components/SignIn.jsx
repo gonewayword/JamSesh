@@ -38,14 +38,13 @@ class SignIn extends React.Component {
   render() {
     return (
       <div className="container">
-        {/* <Navbar /> */}
         <h3>Sign In</h3>
         <Validation.components.Form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <Validation.components.Input
               className="form-control"
               value=""
-              placeholder="Username"
+              placeholder="Email"
               name="email"
               validations={['required']}
             />
