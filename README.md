@@ -1,4 +1,4 @@
-<img src="http://i67.tinypic.com/2ld9iza.png" height="370px" width="500px" />
+<center><img src="http://i67.tinypic.com/2ld9iza.png" height="370px" width="500px" /></center>
 
 # JamSesh
 
