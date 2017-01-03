@@ -1,3 +1,5 @@
+![JamSesh](http://i67.tinypic.com/2ld9iza.png)
+
 # JamSesh
 
 > For people who play instruments and are looking to jam.
