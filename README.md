@@ -12,12 +12,10 @@
 
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
-1. [Development](#development)
-    1. [Installing Dependencies](#installing-dependencies)
-    1. [Tasks](#tasks)
+1. [Installing Dependencies](#installing-dependencies)
 1. [Team](#team)
 1. [Contributing](#contributing)
-
+1. [Pictures](#pictures)
 ## Usage
 
 1. NPM Install
@@ -38,3 +36,11 @@ npm install
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
+
+## Pictures
+![Main](http://imgur.com/CtGJnNw)
+![SignIn/Up](http://imgur.com/N4TpbQR)
+![CreateGroup](http://imgur.com/Lrm5uga)
+![Inbox](http://imgur.com/3a6gUWn)
+
+
