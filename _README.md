@@ -20,32 +20,20 @@
 
 ## Usage
 
-> Some usage instructions
+1. NPM Install
+2. NPM Start to run locally
 
 ## Requirements
 
-- Node 0.0.0,
-- MongoDB 2.2.16
-- Mongoose 4.7.4
+- Firebase 3.6.4
 - React 15.4.1
 - Webpack 1.14.0
-
-## Development
 
 ### Installing Dependencies
 
 From within the root directory:
 
-```sh
-sudo npm install -g bower
 npm install
-bower install
-```
-
-### Roadmap
-
-View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
-
 
 ## Contributing
 
