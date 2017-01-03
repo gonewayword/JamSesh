@@ -38,9 +38,9 @@ npm install
 See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
 
 ## Pictures
-![Main](http://imgur.com/CtGJnNw)
-![SignIn/Up](http://imgur.com/N4TpbQR)
-![CreateGroup](http://imgur.com/Lrm5uga)
-![Inbox](http://imgur.com/3a6gUWn)
+![Main](http://i.imgur.com/CtGJnNw.png)
+![SignIn/Up](http://i.imgur.com/N4TpbQR.png)
+![CreateGroup](http://i.imgur.com/Lrm5uga.png)
+![Inbox](http://i.imgur.com/3a6gUWn.png)
 
 
