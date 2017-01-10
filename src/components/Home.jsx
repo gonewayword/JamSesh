@@ -55,10 +55,10 @@ class Home extends React.Component {
         <div className="col-md-4 bg-info">
           <button onClick={this.handleSearchClick}>Filtered Search</button>
           { this.state.showSearch ? this.search : '' }
+          <div style={{ marginTop: 20 }}><Messenger firebaseApp={this.props.firebaseApp} sendTo={this.state.sendTo} /></div>
         </div>
         <div className="col-md-8">
           <div style={styles.chatHeader}>Jam Chat!</div>
-          {/* <Messenger firebaseApp={this.props.firebaseApp} sendTo={this.state.sendTo} /> */}
           <div class="row">
             <ChatRoom />
           </div>

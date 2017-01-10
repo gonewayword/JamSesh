@@ -114,6 +114,7 @@ const chatStyles = {
     backgroundColor: "#F0F8FF",
     fontFamily: "Arial, Helvetica, sans-serif",
     height: 300,
+    width: 200,
     borderRadius: 10,
     overflow: "auto",
     display: "inline-block"

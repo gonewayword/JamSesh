@@ -7,6 +7,7 @@ class GroupListItem extends React.Component {
     super(props);
     this.handleDetailsClick = this.handleDetailsClick.bind(this);
     this.handleMessageClick = this.handleMessageClick.bind(this);
+    this.joinRoom = this.joinRoom.bind(this);
     this.state = {
       showDetails: false,
     };
@@ -21,9 +22,10 @@ class GroupListItem extends React.Component {
   }
 
   handleMessageClick() {
-    console.warn('handleMessageClick works', this.props.item.owner);
     this.props.sendTo(this.props.item.owner);
+  }
 
+  joinRoom() {
     return this.state.showChat ?
     this.setState({ showChat: false }) :
     this.setState({ showChat: true });
@@ -31,6 +33,26 @@ class GroupListItem extends React.Component {
   }
 
   render() {
+
+    let left = this.props.item.id * 20;
+
+    const chatTitle = {
+      backgroundColor: 'Gainsboro',
+      borderRadius: 10,
+      margin: 15,
+      width: '100%',
+      fontSize: 'large',
+      margin: 'auto',
+    }
+
+    const popChat = {
+      position: 'fixed',
+      bottom: '0%',
+      zIndex: 5,
+      marginLeft: `${left}%`,
+      width: 200,
+    }
+
     return (
       <tr>
         <td>{this.props.item.instrument}</td>
@@ -43,17 +65,14 @@ class GroupListItem extends React.Component {
           {this.props.item.owner}
           <br />
           <img onClick={this.handleMessageClick} alt="Message" src="http://www.rcuniverse.com/images/email-icon.jpg" />
-          <div style={popChat}>{ this.state.showChat ? <PrivateChat id={this.props.item.id}/> : ''} </div>
+          <div onClick={this.joinRoom}>Join This Group's Chat</div>
+          <div style={popChat}>
+            { this.state.showChat ? <div><div style={chatTitle}><strong>{this.props.item.name}'s Group Chat!</strong><br /></div> <PrivateChat id={this.props.item.id}/></div> : ''}
+          </div>
         </td>
       </tr>
     );
   }
-}
-
-const popChat = {
-  position: 'fixed',
-  bottom: '0%',
-  zIndex: 5
 }
 
 export default GroupListItem;
